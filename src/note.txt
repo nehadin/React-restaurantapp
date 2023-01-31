@@ -1,0 +1,175 @@
+23/01/2023 -    Mon
+____________________
+
+
+
+________________________
+24/01/2023  -   Tue
+________________________
+
+1) Creat a 'component' folder inside it-'Header.js' , import 'React' .
+    Copy paste the navbar code from BootStrap React and import the required folders in Header.js
+
+2) In App.js, Import the Header.js 
+    call the Header tag in its body section <Header/>
+
+3) Create new file Footer.js and import it to App.js
+4) Create file -Reastaurant.js
+    to store data in it we have declare state just after function line, 
+    - import useState hook .... to declare and use state we need hook - useState
+
+5) Creating API call (in js)
+    ---------------
+                                    AJAX - Asynchronous Javascript and Xml
+                                    We use the below 3 methods in AJAX for API call
+                                        *XMLhttp
+                                        *fetch
+                                        *async & await
+     the API call is done inside the restauratndata function with async() and await
+     - await is used just before , along with the code containing the Asynchronous code
+
+4) importing 2nd Hook  - useEffect     Hook      - similar to ngOninit block in angular
+    a block is created with this hook       
+
+
+____________________
+25/11/2023 - Wed
+___________________
+5)  Create new component -Restcard.js
+    now we will send the data from Restaurantlist to Restcard
+    In 'Restaurantlist.js', inside the <Restcard> Selector, we declare some variable 'data' and the item value is passed in it
+    -Now the values in item can be accessed in Restcard.js, by calling {data} in function name- function Restcard({data}) { }
+
+6) Card component coode is used in Restcard.js (from Bootstrap react)
+
+
+ 
+    Redirection in React
+    ====================
+
+    Package - React-Router-Dom
+        ---------------      >> npm i react-router-dom
+
+    for Routing we need import the below components in  ---- App.js
+
+    import {
+        BrowserRouter as Router       - all components that need routing , they has to be added to BrowserRouter, and we need to set path for it
+        Routes,                       - to set paths for each components
+        Route                         - morethan one path
+    } from 'react-router-dom';
+
+
+7) New file - Viewrest.js
+
+
+_____________________
+27/01/2023 - Friday
+____________________
+
+
+
+*>    useParams           - HOOK used for routing, just like ActivatedRoute
+     ===========
+
+
+
+Step)  - INside viewrest.js , import useParams hook
+            import { useParams } from 'react-router-dom'
+
+            this hook is to be stored in some variable inside the function - const params = useParams()
+
+    - copy the api call code fully from Restaurantlist.js and paste it Viewrest
+      now the enitre restaurants.json data can be accessed in Viewrest.js file
+
+
+Step )  -   Create 2 new components - Reviews.js and Operatingtime. js
+            to display the operating time and customer reviews inside button
+
+
+
+
+____________________
+30/01/2023 - Monday
+____________________
+
+
+REDUX
+========
+-State management Tool
+
+help to pass states and props from one component to another, irrespective of their position in the component tree 
+
+- Coupling - many connection between parent and child component
+
+- Props drilling - in coupling, if any intermediate component have any errors all other childs will not work
+    (used for passing data through several nested children components)
+    (They are simply used as mediums for transporting this data to its destination component)
+    (“drilling” comes in, where these components are forced to take in unrelated data and pass it to the next component,
+     which in turn passes it, and so on, until it reaches its destination)
+
+To avoid props drilling we need to reduce coupling and make all the components independent
+
+for this react introduced a new technology - state managemet technology -REDUX
+
+
+
+REDUX Process
+===============
+Create new js file to keep the states, all the components can accesss the js file
+
+- the componenrs can access the datas from the js file but they can't update data in js file
+
+- Action - a file with all the logics to update the state
+- Dispatch - - method used to dispatch the logic in action file when the component need state updation
+- Reducer - update the datas in js file according to the play load response  get form action file 
+
+
+libraries
+
+1 - Redux 
+2 - React-Redux
+3 - Redux-thunk
+
+Installing redux and required libraries 
+            >> npm i redux react-redux redux-thunk
+
+
+Step) Create a js file in src (store.js)
+
+        - createStore() - method used in REDUX to create store in js file
+         ---------------
+                        - it uses 2 argument:
+                            1. reducer
+                            2. middleware  (here middleware is used for making synchronous REDUX into asynchronous)
+                                **  applyMiddleware() - method in REDUX to apply middleware 
+                                   ```````````````````
+                                ** combineReducers() - we may have 2 or more reducers in our application, we will need to combine them together
+                                   ``````````````````
+                                ** thunk - in REDUX- used to create middleware
+                                  ```````
+
+Step) Apply store in js file (index.js)
+        - provider - its a tag used to pass the store (the tag is in 'react-redux')
+         ----------
+
+         in resturantlist.js we have defined state for allrestaurant and setallrestaurant
+         the API call is created using async & await
+         now we need to creat Action file in src and a new folder for actions.
+
+
+
+____________________
+31/01/2023 - Tuesday
+____________________
+
+
+AXIONS          - module used to make http methods ( for API calls)
+=======
+
+        >>   npm i axios
+
+    now import Axiox in action file (RestaurantAction.js)
+
+
+*>    useDispatch           - HOOK used to dispatch actions in components ( hook available in React-redux)
+     ===========
